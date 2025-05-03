@@ -1,0 +1,13 @@
+[build]
+  publish = "gravitational-particles.go-main"
+  
+[[redirects]]
+  from = "/*"
+  to = "/demo.html"
+  status = 200
+  force = false
+  conditions = {Path = "/"}
+  
+[dev]
+  command = "npm run dev"
+  port = 3000 

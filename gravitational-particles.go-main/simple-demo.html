@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Particles.js Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .preset-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .preset-card {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .preset-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.75rem;
+            z-index: 10;
+        }
+        
+        .preset-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        /* Add some background colors to help see the particles better */
+        #default-preset {
+            background-color: #1a1a2e;
+        }
+        
+        #snow-preset {
+            background-color: #16213e;
+        }
+        
+        #nightsky-preset {
+            background-color: #0f3460;
+        }
+        
+        #bubbles-preset {
+            background-color: #1a1a2e;
+        }
+        
+        #spacydots-preset {
+            background-color: #0f3460;
+        }
+        
+        #custom-preset {
+            background-color: #1e1e1e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Particles.js Presets</h1>
+            <p>Below are different particle effect presets you can use in your projects</p>
+        </div>
+        
+        <div class="preset-cards">
+            <!-- Default Preset -->
+            <div class="preset-card">
+                <div id="default-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Default</h3>
+                    <p>Standard white particles with connecting lines</p>
+                </div>
+            </div>
+            
+            <!-- Snow Preset -->
+            <div class="preset-card">
+                <div id="snow-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Snow</h3>
+                    <p>Falling snow-like particles</p>
+                </div>
+            </div>
+            
+            <!-- Night Sky Preset -->
+            <div class="preset-card">
+                <div id="nightsky-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Night Sky</h3>
+                    <p>Starry night effect with twinkling stars</p>
+                </div>
+            </div>
+            
+            <!-- Bubbles Preset -->
+            <div class="preset-card">
+                <div id="bubbles-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Bubbles</h3>
+                    <p>Floating bubble-like particles with animations</p>
+                </div>
+            </div>
+            
+            <!-- Spacy Dots Preset -->
+            <div class="preset-card">
+                <div id="spacydots-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Spacy Dots</h3>
+                    <p>Connected dots that react to cursor movement</p>
+                </div>
+            </div>
+            
+            <!-- Custom Red Preset -->
+            <div class="preset-card">
+                <div id="custom-preset" class="particles-container"></div>
+                <div class="preset-info">
+                    <h3>Custom Red</h3>
+                    <p>Default preset with red particles</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Use a different CDN source for particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Configurations
+        const configs = {
+            default: {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 5,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 6,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            snow: {
+                particles: {
+                    number: {
+                        value: 200, // Reduced number for better performance
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "bottom",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: false
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            },
+            nightsky: {
+                particles: {
+                    number: {
+                        value: 100, // Reduced for better performance
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.8,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 100,
+                        color: "#ffffff",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: true
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        }
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 250,
+                            size: 5,
+                            duration: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            bubbles: {
+                particles: {
+                    number: {
+                        value: 30, // Reduced for better animation
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#4285f4"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 3,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 15,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 5,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "repulse"
+                        }
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 250,
+                            size: 0,
+                            duration: 2,
+                            opacity: 0,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 400,
+                            duration: 0.4
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            spacydots: {
+                particles: {
+                    number: {
+                        value: 60, // Reduced for better performance
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            customRed: {
+                // Copy of default with red particles
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ff0000" // Red color
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 5,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ff0000", // Red lines
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 6,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            }
+        };
+        
+        // Initialize all presets
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Initialize each preset in its own container
+                particlesJS('default-preset', configs.default);
+                particlesJS('snow-preset', configs.snow);
+                particlesJS('nightsky-preset', configs.nightsky);
+                particlesJS('bubbles-preset', configs.bubbles);
+                particlesJS('spacydots-preset', configs.spacydots);
+                particlesJS('custom-preset', configs.customRed);
+                
+                console.log('All presets loaded successfully');
+            } catch (error) {
+                console.error('Error initializing particles:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

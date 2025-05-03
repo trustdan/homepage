@@ -1,0 +1,7 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Particles.js Hugo Demo"
+theme = ""
+
+[params]
+  description = "A demo of particles.js integration with Hugo" 
