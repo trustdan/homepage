@@ -1,3 +1,3 @@
 @echo off
 echo Opening your homepage in the default browser...
-start "" "gravitational-particles.go-main\demo.html" 
+start "" "gravitational-particles.go-main\index.html" 

@@ -1,0 +1,6 @@
+# Netlify redirects file
+# Redirect domain root to index.html
+/   /index.html   200
+
+# Ensure demo.html works too (in case it's referenced somewhere)
+/demo.html   /index.html   200 

@@ -16,7 +16,7 @@ There are multiple ways to run this project locally:
 
 Simply open the HTML file directly in your browser:
 ```
-gravitational-particles.go-main/demo.html
+gravitational-particles.go-main/index.html
 ```
 
 You can use the included batch file:
@@ -38,7 +38,7 @@ npm start
 
 3. Open your browser and go to:
 ```
-http://localhost:3000/demo.html
+http://localhost:3000/
 ```
 
 You can also use the batch file:
@@ -56,7 +56,7 @@ python -m http.server
 
 2. Open your browser and go to:
 ```
-http://localhost:8000/demo.html
+http://localhost:8000/
 ```
 
 You can also use the PowerShell script:
@@ -75,7 +75,15 @@ This project is ready to deploy to services like GitHub Pages or Netlify.
 
 ### Netlify Deployment
 
-The included `netlify.toml` file is already configured for deployment. Connect your GitHub repository to Netlify and it will automatically deploy when you push changes.
+1. Push your repository to GitHub
+2. Log in to Netlify and click "New site from Git"
+3. Choose your repository
+4. Configure:
+   - Build command: (leave blank)
+   - Publish directory: gravitational-particles.go-main
+5. Click "Deploy site"
+
+The included `netlify.toml` file is already configured for deployment, so Netlify will automatically use these settings.
 
 ## Customization
 

@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel's Homepage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        h1 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .examples {
+            margin-top: 2rem;
+        }
+        
+        .examples h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .examples button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .examples button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Default particles container */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: #1a1a2e;
+        }
+        
+        .status {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        /* Control panel styles */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 320px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+        
+        .control-header {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .control-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .control-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        .control-content {
+            padding: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .control-content.collapsed {
+            display: none;
+        }
+        
+        .control-section {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .control-section-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .control-item {
+            margin-bottom: 8px;
+        }
+        
+        .control-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .control-row {
+            display: flex;
+            align-items: center;
+        }
+        
+        .control-slider {
+            flex: 1;
+            margin-right: 10px;
+        }
+        
+        .control-value {
+            width: 50px;
+            text-align: center;
+            font-size: 12px;
+            background: #333;
+            border: none;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .control-select {
+            width: 100%;
+            padding: 4px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 3px;
+        }
+        
+        .control-actions {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .control-actions button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .control-actions button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Homepage styles */
+        .homepage-content {
+            text-align: center;
+        }
+        
+        .profile-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .profile-links a {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 10px;
+            padding: 8px 16px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .profile-links a:hover {
+            background-color: #34495e;
+        }
+        
+        .profile-links a i {
+            margin-right: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="content">
+        <div class="hero">
+            <div class="homepage-content">
+                <h1>Daniel's Homepage</h1>
+                <p>Welcome to my personal site. I'm a developer passionate about creating awesome things.</p>
+                
+                <div class="profile-links">
+                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i> Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Control Panel -->
+    <div class="control-panel" id="controlPanel">
+        <div class="control-header">
+            <div class="control-title">Particles.js Controls</div>
+            <button class="control-toggle" id="controlToggle">+</button>
+        </div>
+        <div class="control-content collapsed" id="controlContent">
+            <!-- Particles Section -->
+            <div class="control-section">
+                <div class="control-section-title">Particles</div>
+                
+                <!-- Number -->
+                <div class="control-item">
+                    <label class="control-label">Number of particles</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="particleNumber" min="1" max="500" value="69">
+                        <input type="number" class="control-value" id="particleNumberValue" value="69">
+                    </div>
+                </div>
+                
+                <!-- Color -->
+                <div class="control-item">
+                    <label class="control-label">Particle color</label>
+                    <input type="color" id="particleColor" value="#ffffff" style="width:100%;">
+                </div>
+                
+                <!-- Size -->
+                <div class="control-item">
+                    <label class="control-label">Particle size</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="particleSize" min="1" max="20" value="8">
+                        <input type="number" class="control-value" id="particleSizeValue" value="8">
+                    </div>
+                </div>
+                
+                <!-- Opacity -->
+                <div class="control-item">
+                    <label class="control-label">Opacity</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="particleOpacity" min="0" max="1" step="0.1" value="0.5">
+                        <input type="number" class="control-value" id="particleOpacityValue" value="0.5" step="0.1">
+                    </div>
+                </div>
+                
+                <!-- Shape -->
+                <div class="control-item">
+                    <label class="control-label">Shape</label>
+                    <select id="particleShape" class="control-select">
+                        <option value="circle" selected>Circle</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="star">Star</option>
+                        <option value="polygon">Polygon</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Movement Section -->
+            <div class="control-section">
+                <div class="control-section-title">Movement</div>
+                
+                <!-- Speed -->
+                <div class="control-item">
+                    <label class="control-label">Speed</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="particleSpeed" min="0" max="20" value="2">
+                        <input type="number" class="control-value" id="particleSpeedValue" value="2">
+                    </div>
+                </div>
+                
+                <!-- Direction -->
+                <div class="control-item">
+                    <label class="control-label">Direction</label>
+                    <select id="particleDirection" class="control-select">
+                        <option value="none" selected>None</option>
+                        <option value="top">Top</option>
+                        <option value="bottom">Bottom</option>
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+                
+                <!-- Gravity Effect -->
+                <div class="control-item">
+                    <label class="control-label">
+                        <input type="checkbox" id="enableAttraction" checked> Enable particle attraction
+                    </label>
+                </div>
+                
+                <!-- Attraction Strength -->
+                <div class="control-item">
+                    <label class="control-label">Attraction strength</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="attractionStrength" min="1" max="15000" value="140">
+                        <input type="number" class="control-value" id="attractionStrengthValue" value="140">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lines Section -->
+            <div class="control-section">
+                <div class="control-section-title">Lines</div>
+                
+                <!-- Enable Lines -->
+                <div class="control-item">
+                    <label class="control-label">
+                        <input type="checkbox" id="enableLines" checked> Enable connecting lines
+                    </label>
+                </div>
+                
+                <!-- Line Color -->
+                <div class="control-item">
+                    <label class="control-label">Line color</label>
+                    <input type="color" id="lineColor" value="#90EE90" style="width:100%;">
+                </div>
+                
+                <!-- Line Width -->
+                <div class="control-item">
+                    <label class="control-label">Line width</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="lineWidth" min="0.1" max="5" step="0.1" value="2">
+                        <input type="number" class="control-value" id="lineWidthValue" value="2" step="0.1">
+                    </div>
+                </div>
+                
+                <!-- Line Distance -->
+                <div class="control-item">
+                    <label class="control-label">Connection distance</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="lineDistance" min="10" max="500" value="159">
+                        <input type="number" class="control-value" id="lineDistanceValue" value="159">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactivity Section -->
+            <div class="control-section">
+                <div class="control-section-title">Interactivity</div>
+                
+                <!-- Hover Mode -->
+                <div class="control-item">
+                    <label class="control-label">On hover</label>
+                    <select id="hoverMode" class="control-select">
+                        <option value="none">None</option>
+                        <option value="grab" selected>Grab</option>
+                        <option value="bubble">Bubble</option>
+                        <option value="repulse">Repulse</option>
+                    </select>
+                </div>
+                
+                <!-- Click Mode -->
+                <div class="control-item">
+                    <label class="control-label">On click</label>
+                    <select id="clickMode" class="control-select">
+                        <option value="none">None</option>
+                        <option value="push" selected>Push</option>
+                        <option value="remove">Remove</option>
+                        <option value="bubble">Bubble</option>
+                        <option value="repulse">Repulse</option>
+                    </select>
+                </div>
+                
+                <!-- Cursor Bounce Effect -->
+                <div class="control-item">
+                    <label class="control-label">
+                        <input type="checkbox" id="enableCursorBounce"> Enable cursor bounce
+                    </label>
+                    <small style="display: block; margin-top: 2px; font-size: 10px; opacity: 0.7;">
+                        Particles will bounce off your cursor like a screensaver
+                    </small>
+                </div>
+                
+                <!-- Bounce Strength -->
+                <div class="control-item" id="bounceStrengthContainer" style="display: none;">
+                    <label class="control-label">Bounce strength</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="bounceStrength" min="1" max="3" step="0.1" value="1.5">
+                        <input type="number" class="control-value" id="bounceStrengthValue" value="1.5" step="0.1">
+                    </div>
+                </div>
+                
+                <!-- Cursor Size -->
+                <div class="control-item" id="cursorSizeContainer" style="display: none;">
+                    <label class="control-label">Cursor radius</label>
+                    <div class="control-row">
+                        <input type="range" class="control-slider" id="cursorSize" min="10" max="100" value="35">
+                        <input type="number" class="control-value" id="cursorSizeValue" value="35">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-actions">
+                <button id="applyChanges">Apply Changes</button>
+                <button id="resetChanges">Reset to Default</button>
+                <button id="exportConfig">Export Config</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Status display element
+        const statusEl = document.getElementById('status');
+        
+        // Configurations
+        const configs = {
+            default: {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 5,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 6,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            snow: {
+                particles: {
+                    number: {
+                        value: 400,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "bottom",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: false
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            },
+            nightsky: {
+                particles: {
+                    number: {
+                        value: 160,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.8,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 100,
+                        color: "#ffffff",
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: true
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        }
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 250,
+                            size: 5,
+                            duration: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            bubbles: {
+                particles: {
+                    number: {
+                        value: 50,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#4285f4"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 3,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 15,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 5,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "repulse"
+                        }
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 250,
+                            size: 0,
+                            duration: 2,
+                            opacity: 0,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 400,
+                            duration: 0.4
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            spacydots: {
+                particles: {
+                    number: {
+                        value: 120,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            
+            gravity: {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: ["#7ee0ff", "#ff7e7e", "#7eff8e", "#ffdd7e"]
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.8,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.3,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 15,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 2,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#50a9ff",
+                        opacity: 0.6,
+                        width: 1.5,
+                        shadow: {
+                            enable: true,
+                            color: "#000000",
+                            blur: 5
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "bounce",
+                        bounce: true,
+                        attract: {
+                            enable: true,
+                            rotateX: 5000,
+                            rotateY: 10000
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 150,
+                            line_linked: {
+                                opacity: 0.8
+                            }
+                        },
+                        push: {
+                            particles_nb: 3
+                        }
+                    }
+                },
+                retina_detect: true
+            },
+            
+            strongGravity: {
+                particles: {
+                    number: {
+                        value: 69,     // User specified 69 particles
+                        density: {
+                            enable: false  // Disable density to maintain exact number
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle" // User specified circle
+                    },
+                    opacity: {
+                        value: 0.5,    // User specified 0.5 opacity
+                        random: true   // Random opacity for variety
+                    },
+                    size: {
+                        value: 8,      // User specified size 8
+                        random: true   // Enable random sizing
+                    },
+                    line_linked: {
+                        enable: true,  // User specified enabling lines
+                        distance: 159, // User specified distance 159
+                        color: "#90EE90", // Light green
+                        opacity: 0.8,
+                        width: 2       // User specified line width 2
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,      // User specified speed 2
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false, // Disable bounce so particles can pass through each other
+                        attract: {
+                            enable: true, // User specified enable attraction
+                            rotateX: 140,  // User specified attraction strength 140
+                            rotateY: 140   // Same value for Y
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"  // User specified Grab on hover
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"  // User specified Push on click
+                        }
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 0.8
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            }
+        };
+        
+        // Function to destroy existing particles
+        function destroyParticles() {
+            // Check if pJSDom array exists and has instances
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                // Iterate through the instances and attempt to destroy them
+                // Note: particles.js stores instances in window.pJSDom
+                window.pJSDom.forEach(instance => {
+                    // Access the internal destroy function if it exists
+                    if (instance && instance.pJS && typeof instance.pJS.fn?.vendors?.destroypJS === 'function') {
+                        instance.pJS.fn.vendors.destroypJS();
+                    }
+                });
+
+                // Clear the global array holding references to the instances
+                window.pJSDom = [];
+
+                // Explicitly remove the canvas element created by particles.js inside the container
+                const canvasEl = document.querySelector('#particles-js canvas');
+                if (canvasEl) {
+                    canvasEl.remove();
+                }
+                console.log('Destroyed previous particles instance(s).');
+            } else {
+                console.log('No existing particles instance found in window.pJSDom to destroy.');
+                // As a fallback, ensure any orphaned canvas is removed
+                 const canvasEl = document.querySelector('#particles-js canvas');
+                if (canvasEl) {
+                    canvasEl.remove();
+                     console.log('Removed potentially orphaned canvas.');
+                }
+            }
+        }
+        
+        // Initialize with the strong gravity config
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Set controls to be collapsed by default
+                const controlContent = document.getElementById('controlContent');
+                const controlToggle = document.getElementById('controlToggle');
+                controlContent.classList.add('collapsed');
+                controlToggle.textContent = '+';
+                
+                applyPreset('strongGravity');
+            } catch (e) {
+                console.error('Error initializing particles:', e);
+                if (statusEl) {
+                    statusEl.textContent = 'Error: ' + e.message;
+                }
+            }
+        });
+        
+        // Function to apply a preset
+        function applyPreset(preset) {
+            try {
+                // Check if preset exists
+                if (!configs[preset]) {
+                    throw new Error(`Preset "${preset}" does not exist`);
+                }
+
+                // First destroy existing particles instance and its canvas
+                destroyParticles();
+                
+                // Set appropriate background color based on preset
+                setBackgroundColorForPreset(preset);
+
+                // Get a fresh copy of the config
+                const config = JSON.parse(JSON.stringify(configs[preset]));
+
+                // Apply new particles to the *existing* container
+                particlesJS('particles-js', config);
+
+                // Update status
+                statusEl.textContent = `Current preset: ${preset}`;
+
+                console.log(`Applied "${preset}" preset`);
+                
+                // Special handling for strongGravity preset
+                if (preset === 'strongGravity') {
+                    console.log('Applying Strong Gravity special handling...');
+                    // Run immediately after particlesJS call completes (asynchronously)
+                    // Use requestAnimationFrame to ensure DOM is ready after particlesJS setup
+                    requestAnimationFrame(() => {
+                         if (window.pJSDom && window.pJSDom.length > 0 && window.pJSDom[0].pJS) {
+                            console.log('Found pJS instance for Strong Gravity.');
+                            const pJS = window.pJSDom[0].pJS;
+                            const canvas = pJS.canvas.el;
+                            const centerX = canvas.width / 2;
+                            const centerY = canvas.height / 2;
+                            
+                            console.log(`Canvas dimensions: ${canvas.width}x${canvas.height}, Center: ${centerX},${centerY}`);
+                            
+                            // First, remove all existing particles generated by the config
+                            console.log(`Initial particle count: ${pJS.particles.array.length}`);
+                            pJS.particles.array = [];
+                            console.log(`Particle count after clearing: ${pJS.particles.array.length}`);
+                            
+                            // Create a single large central particle
+                            pJS.fn.particlesCreate(); // Create one particle
+                            if (pJS.particles.array.length > 0) {
+                                const sun = pJS.particles.array[0];
+                                sun.radius = 30;
+                                sun.size = 60; // Visual size
+                                sun.x = centerX;
+                                sun.y = centerY;
+                                sun.color = { value: "#ffdd00" }; // Use object format for color
+                                sun.opacity = { value: 1 };
+                                sun.vx = 0;
+                                sun.vy = 0;
+                                console.log(`Created central sun at ${sun.x}, ${sun.y} with radius ${sun.radius}`);
+                            } else {
+                                console.error('Failed to create the central sun particle.');
+                            }
+                            
+                            // Now create many small particles with varied sizes
+                            const numSmallParticles = 68; // 69 total particles (1 sun + 68 small particles)
+                            for (let i = 0; i < numSmallParticles; i++) {
+                                pJS.fn.particlesCreate(); // Create another particle
+                                // The new particle is at the end of the array
+                                const p = pJS.particles.array[pJS.particles.array.length - 1]; 
+                                if (p) {
+                                    // Random size for variety (between 2 and 8)
+                                    const randomSize = 2 + Math.random() * 6;
+                                    p.radius = randomSize;
+                                    p.size = randomSize * 2;
+                                    
+                                    const angle = Math.random() * Math.PI * 2;
+                                    const distance = 100 + Math.random() * 120;
+                                    p.x = centerX + Math.cos(angle) * distance;
+                                    p.y = centerY + Math.sin(angle) * distance;
+                                    
+                                    const speed = 0.1 + Math.random() * 0.4; // Varied speeds
+                                    p.vx = Math.sin(angle) * speed;
+                                    p.vy = -Math.cos(angle) * speed;
+                                    
+                                    // Random color variations of white
+                                    const brightness = 180 + Math.floor(Math.random() * 75);
+                                    p.color = { value: `rgb(${brightness},${brightness},${brightness})` };
+                                    
+                                    // Random opacity for variety
+                                    p.opacity = { value: 0.3 + Math.random() * 0.4 };
+                                } else {
+                                     console.error(`Failed to create small particle index ${i}`);
+                                }
+                            }
+                            console.log(`Created ${numSmallParticles} small particles. Final count: ${pJS.particles.array.length}`);
+                            
+                            // Make sure bounce is disabled 
+                            pJS.particles.move.bounce = false;
+                            
+                            // Force a redraw if necessary (though usually happens automatically)
+                            pJS.fn.particlesDraw(); 
+                            console.log('Strong Gravity special handling complete.');
+                         } else {
+                            console.error('Could not find pJS instance for Strong Gravity special handling.');
+                         }
+                    });
+                }
+
+                // Special handling for gravity preset to initialize 
+                // with particles more concentrated in the center
+                if (preset === 'gravity') {
+                    setTimeout(() => {
+                        // If the particles instance exists
+                        if (window.pJSDom && window.pJSDom.length > 0 && window.pJSDom[0].pJS) {
+                            const pJS = window.pJSDom[0].pJS;
+                            // Get canvas dimensions
+                            const canvas = pJS.canvas.el;
+                            const centerX = canvas.width / 2;
+                            const centerY = canvas.height / 2;
+                            
+                            // Create a few very large "planet" particles
+                            const createLargePlanet = (x, y, size, color) => {
+                                // Find a smaller particle to replace
+                                const smallParticleIndex = pJS.particles.array.findIndex(p => p.radius < 5);
+                                if (smallParticleIndex >= 0) {
+                                    const p = pJS.particles.array[smallParticleIndex];
+                                    p.radius = size;
+                                    p.size = size * 2;
+                                    p.x = x;
+                                    p.y = y;
+                                    p.color = color;
+                                    // Nearly stop its movement
+                                    p.vx = p.vx * 0.1;
+                                    p.vy = p.vy * 0.1;
+                                }
+                            };
+                            
+                            // Create a central "sun"
+                            createLargePlanet(centerX, centerY, 25, '#ffdd00');
+                            
+                            // Create a few planets at different distances
+                            createLargePlanet(centerX + canvas.width * 0.2, centerY, 15, '#ff7e7e');
+                            createLargePlanet(centerX - canvas.width * 0.3, centerY + canvas.height * 0.1, 12, '#7eff8e');
+                            createLargePlanet(centerX, centerY - canvas.height * 0.25, 10, '#7ee0ff');
+                            
+                            // Modify particle velocities based on size
+                            pJS.particles.array.forEach(p => {
+                                // Small particles move faster
+                                if (p.radius < 5) {
+                                    p.vx = p.vx * 1.5;
+                                    p.vy = p.vy * 1.5;
+                                }
+                                // Medium particles move normally
+                                else if (p.radius < 10) {
+                                    // Keep default velocity
+                                }
+                                // Large particles move slower
+                                else {
+                                    p.vx = p.vx * 0.3;
+                                    p.vy = p.vy * 0.3;
+                                }
+                                
+                                // Pull particles toward center initially
+                                const dx = centerX - p.x;
+                                const dy = centerY - p.y;
+                                const dist = Math.sqrt(dx * dx + dy * dy);
+                                
+                                if (dist > canvas.width / 3) {
+                                    p.x = centerX + (p.x - centerX) * 0.6;
+                                    p.y = centerY + (p.y - centerY) * 0.6;
+                                }
+                            });
+                            
+                            // Add a custom hook to the particles.js draw loop
+                            if (!pJS.fn.vendors.originalDrawAnimFrame) {
+                                // Store the original drawAnimFrame
+                                pJS.fn.vendors.originalDrawAnimFrame = pJS.fn.drawAnimFrame;
+                                
+                                // Override with our custom function
+                                pJS.fn.drawAnimFrame = function() {
+                                    // Call the original draw function first
+                                    pJS.fn.vendors.originalDrawAnimFrame();
+                                    
+                                    // Then add our custom physics
+                                    const particles = pJS.particles.array;
+                                    
+                                    // Find large particles (our "planets")
+                                    const planets = particles.filter(p => p.radius > 8);
+                                    
+                                    // Apply gravitational attraction from large particles to small ones
+                                    particles.forEach(p1 => {
+                                        // Skip large particles (they attract but aren't attracted much)
+                                        if (p1.radius > 8) return;
+                                        
+                                        // Calculate attraction to each planet
+                                        planets.forEach(p2 => {
+                                            const dx = p2.x - p1.x;
+                                            const dy = p2.y - p1.y;
+                                            const dist = Math.sqrt(dx * dx + dy * dy);
+                                            
+                                            // Skip if too close to avoid extreme acceleration
+                                            if (dist < p2.radius + p1.radius) return;
+                                            
+                                            // Calculate gravitational force (stronger for larger planets)
+                                            const force = p2.radius * 0.01 / (dist * dist);
+                                            
+                                            // Apply acceleration
+                                            p1.vx += dx / dist * force;
+                                            p1.vy += dy / dist * force;
+                                        });
+                                        
+                                        // Add slight drag to prevent extreme velocities
+                                        p1.vx *= 0.99;
+                                        p1.vy *= 0.99;
+                                    });
+                                };
+                            }
+                        }
+                    }, 100);
+                }
+            } catch (e) {
+                console.error(`Error applying "${preset}" preset:`, e);
+                statusEl.textContent = `Error applying "${preset}": ${e.message}`;
+            }
+        }
+        
+        // Function to apply custom red config
+        function applyCustom() {
+            try {
+                // First destroy existing particles instance and its canvas
+                destroyParticles();
+                
+                // Set dark background for custom preset
+                document.getElementById('particles-js').style.backgroundColor = '#1e1e1e';
+
+                // Create a fresh copy of the default config
+                const customConfig = JSON.parse(JSON.stringify(configs.default));
+
+                // Modify properties
+                customConfig.particles.color.value = "#ff0000";
+                customConfig.particles.line_linked.color = "#ff0000"; // Keep lines red
+
+                // Apply the custom config to the *existing* container
+                particlesJS('particles-js', customConfig);
+
+                // Update status
+                statusEl.textContent = 'Current preset: Custom Red';
+
+                console.log('Applied "Custom Red" preset');
+            } catch (e) {
+                console.error('Error applying custom red preset:', e);
+                statusEl.textContent = `Error: ${e.message}`;
+            }
+        }
+        
+        // Function to set appropriate background color for each preset
+        function setBackgroundColorForPreset(preset) {
+            const particlesContainer = document.getElementById('particles-js');
+            
+            switch(preset) {
+                case 'default':
+                    particlesContainer.style.backgroundColor = '#1a1a2e';
+                    break;
+                case 'snow':
+                    particlesContainer.style.backgroundColor = '#16213e';
+                    break;
+                case 'nightsky':
+                    particlesContainer.style.backgroundColor = '#0f3460';
+                    break;
+                case 'bubbles':
+                    particlesContainer.style.backgroundColor = '#1a1a2e';
+                    break;
+                case 'spacydots':
+                    particlesContainer.style.backgroundColor = '#0f3460';
+                    break;
+                case 'gravity':
+                    particlesContainer.style.backgroundColor = '#0a192f';
+                    break;
+                case 'strongGravity':
+                    particlesContainer.style.backgroundColor = '#0a192f';
+                    break;
+                default:
+                    particlesContainer.style.backgroundColor = '#1a1a2e';
+            }
+        }
+        
+        // Control panel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle control panel
+            const controlToggle = document.getElementById('controlToggle');
+            const controlContent = document.getElementById('controlContent');
+            
+            controlToggle.addEventListener('click', function() {
+                controlContent.classList.toggle('collapsed');
+                controlToggle.textContent = controlContent.classList.contains('collapsed') ? '+' : '−';
+            });
+            
+            // Sync range inputs with number inputs
+            const rangeInputs = document.querySelectorAll('.control-slider');
+            rangeInputs.forEach(input => {
+                const valueInput = document.getElementById(input.id + 'Value');
+                if (valueInput) {
+                    // Update value input when slider changes
+                    input.addEventListener('input', function() {
+                        valueInput.value = input.value;
+                    });
+                    
+                    // Update slider when value input changes
+                    valueInput.addEventListener('input', function() {
+                        input.value = valueInput.value;
+                    });
+                }
+            });
+            
+            // Toggle bounce controls visibility
+            const enableCursorBounce = document.getElementById('enableCursorBounce');
+            const bounceStrengthContainer = document.getElementById('bounceStrengthContainer');
+            const cursorSizeContainer = document.getElementById('cursorSizeContainer');
+            
+            enableCursorBounce.addEventListener('change', function() {
+                bounceStrengthContainer.style.display = this.checked ? 'block' : 'none';
+                cursorSizeContainer.style.display = this.checked ? 'block' : 'none';
+                
+                // Log the change
+                console.log(`Cursor bounce ${this.checked ? 'enabled' : 'disabled'}`);
+            });
+            
+            // Function to get current config from controls
+            function getConfigFromControls() {
+                const config = {
+                    particles: {
+                        number: {
+                            value: parseInt(document.getElementById('particleNumber').value),
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: document.getElementById('particleColor').value
+                        },
+                        shape: {
+                            type: document.getElementById('particleShape').value,
+                            stroke: {
+                                width: 0,
+                                color: "#000000"
+                            }
+                        },
+                        opacity: {
+                            value: parseFloat(document.getElementById('particleOpacity').value),
+                            random: false,
+                            anim: {
+                                enable: false,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: parseInt(document.getElementById('particleSize').value),
+                            random: true,
+                            anim: {
+                                enable: false,
+                                speed: 40,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: document.getElementById('enableLines').checked,
+                            distance: parseInt(document.getElementById('lineDistance').value),
+                            color: document.getElementById('lineColor').value,
+                            opacity: 0.4,
+                            width: parseFloat(document.getElementById('lineWidth').value)
+                        },
+                        move: {
+                            enable: true,
+                            speed: parseInt(document.getElementById('particleSpeed').value),
+                            direction: document.getElementById('particleDirection').value,
+                            random: false,
+                            straight: false,
+                            out_mode: "out",
+                            bounce: false,
+                            attract: {
+                                enable: document.getElementById('enableAttraction').checked,
+                                rotateX: parseInt(document.getElementById('attractionStrength').value),
+                                rotateY: parseInt(document.getElementById('attractionStrength').value) * 2
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: document.getElementById('hoverMode').value !== 'none',
+                                mode: document.getElementById('hoverMode').value
+                            },
+                            onclick: {
+                                enable: document.getElementById('clickMode').value !== 'none',
+                                mode: document.getElementById('clickMode').value
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 1
+                                }
+                            },
+                            bubble: {
+                                distance: 400,
+                                size: 40,
+                                duration: 2,
+                                opacity: 8,
+                                speed: 3
+                            },
+                            repulse: {
+                                distance: 200,
+                                duration: 0.4
+                            },
+                            push: {
+                                particles_nb: 4
+                            },
+                            remove: {
+                                particles_nb: 2
+                            }
+                        }
+                    },
+                    retina_detect: true
+                };
+                
+                return config;
+            }
+            
+            // Apply changes button
+            document.getElementById('applyChanges').addEventListener('click', function() {
+                // Get the bounce settings
+                const bounceEnabled = document.getElementById('enableCursorBounce').checked;
+                const bounceStrength = parseFloat(document.getElementById('bounceStrength').value);
+                const cursorSize = parseInt(document.getElementById('cursorSize').value);
+                
+                // Apply bounce settings to gravity.js if enabled
+                if (bounceEnabled) {
+                    // Update global bounce settings in gravity.js
+                    if (typeof window.updateBounceSettings === 'function') {
+                        window.updateBounceSettings(bounceStrength, cursorSize);
+                    }
+                    // Enable bounce mode
+                    if (typeof window.applyBounceCursor === 'function') {
+                        window.applyBounceCursor();
+                        statusEl.textContent = 'Current mode: Gravity with Cursor Bounce';
+                        console.log(`Applied gravity with cursor bounce (strength: ${bounceStrength}, size: ${cursorSize}px)`);
+                        return; // Skip the standard particles.js update
+                    }
+                }
+                
+                // If we reached here, either bounce is not enabled or the functions aren't available
+                // Proceed with standard particles.js update
+                
+                // Destroy existing particles (this also stops gravity sim if active)
+                destroyParticles();
+                
+                // Get config from controls
+                const config = getConfigFromControls();
+                
+                // Apply new particles
+                particlesJS('particles-js', config);
+                
+                // Update status
+                statusEl.textContent = 'Current mode: Custom Particles.js Config';
+                
+                console.log('Applied custom particles.js configuration');
+            });
+            
+            // Reset to default button
+            document.getElementById('resetChanges').addEventListener('click', function() {
+                // Reset controls to custom values
+                document.getElementById('particleNumber').value = 69;
+                document.getElementById('particleNumberValue').value = 69;
+                document.getElementById('particleColor').value = '#ffffff';
+                document.getElementById('particleSize').value = 8;
+                document.getElementById('particleSizeValue').value = 8;
+                document.getElementById('particleOpacity').value = 0.5;
+                document.getElementById('particleOpacityValue').value = 0.5;
+                document.getElementById('particleShape').value = 'circle';
+                document.getElementById('particleSpeed').value = 2;
+                document.getElementById('particleSpeedValue').value = 2;
+                document.getElementById('particleDirection').value = 'none';
+                document.getElementById('enableLines').checked = true;
+                document.getElementById('lineColor').value = '#90EE90'; // Light green
+                document.getElementById('lineWidth').value = 2;
+                document.getElementById('lineWidthValue').value = 2;
+                document.getElementById('lineDistance').value = 159;
+                document.getElementById('lineDistanceValue').value = 159;
+                document.getElementById('hoverMode').value = 'grab';
+                document.getElementById('clickMode').value = 'push';
+                document.getElementById('enableAttraction').checked = true;
+                document.getElementById('attractionStrength').value = 140;
+                document.getElementById('attractionStrengthValue').value = 140;
+                
+                // Apply strongGravity preset
+                applyPreset('strongGravity');
+            });
+            
+            // Export config button
+            document.getElementById('exportConfig').addEventListener('click', function() {
+                const config = getConfigFromControls();
+                const configString = JSON.stringify(config, null, 2);
+                
+                // Create a temporary textarea to copy to clipboard
+                const textarea = document.createElement('textarea');
+                textarea.value = configString;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                // Show alert
+                alert('Configuration copied to clipboard!');
+                
+                console.log('Exported configuration:', configString);
+            });
+            
+            // Function to update controls when preset is applied
+            function updateControlsFromConfig(config) {
+                if (!config || !config.particles) return;
+                
+                // Update particle controls
+                if (config.particles.number && config.particles.number.value !== undefined) {
+                    document.getElementById('particleNumber').value = config.particles.number.value;
+                    document.getElementById('particleNumberValue').value = config.particles.number.value;
+                }
+                
+                if (config.particles.color && config.particles.color.value !== undefined) {
+                    document.getElementById('particleColor').value = config.particles.color.value;
+                }
+                
+                if (config.particles.size && config.particles.size.value !== undefined) {
+                    document.getElementById('particleSize').value = config.particles.size.value;
+                    document.getElementById('particleSizeValue').value = config.particles.size.value;
+                }
+                
+                if (config.particles.opacity && config.particles.opacity.value !== undefined) {
+                    document.getElementById('particleOpacity').value = config.particles.opacity.value;
+                    document.getElementById('particleOpacityValue').value = config.particles.opacity.value;
+                }
+                
+                if (config.particles.shape && config.particles.shape.type !== undefined) {
+                    document.getElementById('particleShape').value = config.particles.shape.type;
+                }
+                
+                if (config.particles.move) {
+                    if (config.particles.move.speed !== undefined) {
+                        document.getElementById('particleSpeed').value = config.particles.move.speed;
+                        document.getElementById('particleSpeedValue').value = config.particles.move.speed;
+                    }
+                    
+                    if (config.particles.move.direction !== undefined) {
+                        document.getElementById('particleDirection').value = config.particles.move.direction;
+                    }
+                    
+                    // Update attraction settings
+                    if (config.particles.move.attract) {
+                        document.getElementById('enableAttraction').checked = config.particles.move.attract.enable;
+                        
+                        if (config.particles.move.attract.rotateX !== undefined) {
+                            document.getElementById('attractionStrength').value = config.particles.move.attract.rotateX;
+                            document.getElementById('attractionStrengthValue').value = config.particles.move.attract.rotateX;
+                        }
+                    } else {
+                        document.getElementById('enableAttraction').checked = false;
+                    }
+                }
+                
+                if (config.particles.line_linked) {
+                    if (config.particles.line_linked.enable !== undefined) {
+                        document.getElementById('enableLines').checked = config.particles.line_linked.enable;
+                    }
+                    
+                    if (config.particles.line_linked.color !== undefined) {
+                        document.getElementById('lineColor').value = config.particles.line_linked.color;
+                    }
+                    
+                    if (config.particles.line_linked.width !== undefined) {
+                        document.getElementById('lineWidth').value = config.particles.line_linked.width;
+                        document.getElementById('lineWidthValue').value = config.particles.line_linked.width;
+                    }
+                    
+                    if (config.particles.line_linked.distance !== undefined) {
+                        document.getElementById('lineDistance').value = config.particles.line_linked.distance;
+                        document.getElementById('lineDistanceValue').value = config.particles.line_linked.distance;
+                    }
+                }
+                
+                if (config.interactivity && config.interactivity.events) {
+                    if (config.interactivity.events.onhover) {
+                        document.getElementById('hoverMode').value = config.interactivity.events.onhover.enable ? 
+                            config.interactivity.events.onhover.mode : 'none';
+                    }
+                    
+                    if (config.interactivity.events.onclick) {
+                        document.getElementById('clickMode').value = config.interactivity.events.onclick.enable ? 
+                            config.interactivity.events.onclick.mode : 'none';
+                    }
+                }
+            }
+            
+            // Override preset functions to update controls
+            const originalApplyPreset = applyPreset;
+            applyPreset = function(preset) {
+                originalApplyPreset(preset);
+                if (configs[preset]) {
+                    updateControlsFromConfig(configs[preset]);
+                    
+                    // Special handling for gravity preset to initialize 
+                    // with particles more concentrated in the center
+                    if (preset === 'gravity') {
+                        setTimeout(() => {
+                            // If the particles instance exists
+                            if (window.pJSDom && window.pJSDom.length > 0 && window.pJSDom[0].pJS) {
+                                const pJS = window.pJSDom[0].pJS;
+                                // Get canvas dimensions
+                                const canvas = pJS.canvas.el;
+                                const centerX = canvas.width / 2;
+                                const centerY = canvas.height / 2;
+                                
+                                // Create a few very large "planet" particles
+                                const createLargePlanet = (x, y, size, color) => {
+                                    // Find a smaller particle to replace
+                                    const smallParticleIndex = pJS.particles.array.findIndex(p => p.radius < 5);
+                                    if (smallParticleIndex >= 0) {
+                                        const p = pJS.particles.array[smallParticleIndex];
+                                        p.radius = size;
+                                        p.size = size * 2;
+                                        p.x = x;
+                                        p.y = y;
+                                        p.color = color;
+                                        // Nearly stop its movement
+                                        p.vx = p.vx * 0.1;
+                                        p.vy = p.vy * 0.1;
+                                    }
+                                };
+                                
+                                // Create a central "sun"
+                                createLargePlanet(centerX, centerY, 25, '#ffdd00');
+                                
+                                // Create a few planets at different distances
+                                createLargePlanet(centerX + canvas.width * 0.2, centerY, 15, '#ff7e7e');
+                                createLargePlanet(centerX - canvas.width * 0.3, centerY + canvas.height * 0.1, 12, '#7eff8e');
+                                createLargePlanet(centerX, centerY - canvas.height * 0.25, 10, '#7ee0ff');
+                                
+                                // Modify particle velocities based on size
+                                pJS.particles.array.forEach(p => {
+                                    // Small particles move faster
+                                    if (p.radius < 5) {
+                                        p.vx = p.vx * 1.5;
+                                        p.vy = p.vy * 1.5;
+                                    }
+                                    // Medium particles move normally
+                                    else if (p.radius < 10) {
+                                        // Keep default velocity
+                                    }
+                                    // Large particles move slower
+                                    else {
+                                        p.vx = p.vx * 0.3;
+                                        p.vy = p.vy * 0.3;
+                                    }
+                                    
+                                    // Pull particles toward center initially
+                                    const dx = centerX - p.x;
+                                    const dy = centerY - p.y;
+                                    const dist = Math.sqrt(dx * dx + dy * dy);
+                                    
+                                    if (dist > canvas.width / 3) {
+                                        p.x = centerX + (p.x - centerX) * 0.6;
+                                        p.y = centerY + (p.y - centerY) * 0.6;
+                                    }
+                                });
+                                
+                                // Add a custom hook to the particles.js draw loop
+                                if (!pJS.fn.vendors.originalDrawAnimFrame) {
+                                    // Store the original drawAnimFrame
+                                    pJS.fn.vendors.originalDrawAnimFrame = pJS.fn.drawAnimFrame;
+                                    
+                                    // Override with our custom function
+                                    pJS.fn.drawAnimFrame = function() {
+                                        // Call the original draw function first
+                                        pJS.fn.vendors.originalDrawAnimFrame();
+                                        
+                                        // Then add our custom physics
+                                        const particles = pJS.particles.array;
+                                        
+                                        // Find large particles (our "planets")
+                                        const planets = particles.filter(p => p.radius > 8);
+                                        
+                                        // Apply gravitational attraction from large particles to small ones
+                                        particles.forEach(p1 => {
+                                            // Skip large particles (they attract but aren't attracted much)
+                                            if (p1.radius > 8) return;
+                                            
+                                            // Calculate attraction to each planet
+                                            planets.forEach(p2 => {
+                                                const dx = p2.x - p1.x;
+                                                const dy = p2.y - p1.y;
+                                                const dist = Math.sqrt(dx * dx + dy * dy);
+                                                
+                                                // Skip if too close to avoid extreme acceleration
+                                                if (dist < p2.radius + p1.radius) return;
+                                                
+                                                // Calculate gravitational force (stronger for larger planets)
+                                                const force = p2.radius * 0.01 / (dist * dist);
+                                                
+                                                // Apply acceleration
+                                                p1.vx += dx / dist * force;
+                                                p1.vy += dy / dist * force;
+                                            });
+                                            
+                                            // Add slight drag to prevent extreme velocities
+                                            p1.vx *= 0.99;
+                                            p1.vy *= 0.99;
+                                        });
+                                    };
+                                }
+                            }
+                        }, 100);
+                    }
+                }
+            };
+            
+            const originalApplyCustom = applyCustom;
+            applyCustom = function() {
+                originalApplyCustom();
+                const customConfig = JSON.parse(JSON.stringify(configs.default));
+                customConfig.particles.color.value = "#ff0000";
+                customConfig.particles.line_linked.color = "#ff0000";
+                updateControlsFromConfig(customConfig);
+            };
+        });
+        
+        // Custom gravity simulation with vanilla JavaScript
+        let gravityAnimationId = null;
+        let pureGravityActive = false;
+        
+        function applyPureGravity() {
+            console.log('Applying pure gravity simulation');
+            
+            // First destroy existing particles if any
+            if (typeof destroyParticles === 'function') {
+                destroyParticles();
+            }
+            
+            // Hide particles.js container
+            const particlesContainer = document.getElementById('particles-js');
+            particlesContainer.style.display = 'none';
+            
+            // Create our own canvas for gravity simulation
+            let gravityCanvas = document.getElementById('gravity-canvas');
+            if (!gravityCanvas) {
+                gravityCanvas = document.createElement('canvas');
+                gravityCanvas.id = 'gravity-canvas';
+                gravityCanvas.style.position = 'fixed';
+                gravityCanvas.style.top = '0';
+                gravityCanvas.style.left = '0';
+                gravityCanvas.style.width = '100%';
+                gravityCanvas.style.height = '100%';
+                gravityCanvas.style.zIndex = '1';
+                gravityCanvas.style.backgroundColor = '#0a192f';
+                document.body.appendChild(gravityCanvas);
+            } else {
+                gravityCanvas.style.display = 'block';
+            }
+            
+            // Setup canvas and context
+            const ctx = gravityCanvas.getContext('2d');
+            gravityCanvas.width = window.innerWidth;
+            gravityCanvas.height = window.innerHeight;
+            
+            // Update status
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = 'Current preset: Pure Gravity';
+            
+            // Define central sun
+            const sun = {
+                x: gravityCanvas.width / 2,
+                y: gravityCanvas.height / 2,
+                radius: 30,
+                mass: 2000,
+                color: '#ffdd00'
+            };
+            
+            // Create planets
+            const planets = [];
+            const colors = ['#ff7e7e', '#7eff8e', '#7ee0ff', '#ffffff'];
+            
+            for (let i = 0; i < 150; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 100 + Math.random() * 150;
+                const x = sun.x + Math.cos(angle) * distance;
+                const y = sun.y + Math.sin(angle) * distance;
+                
+                const speed = Math.sqrt(sun.mass / distance) * 0.5;
+                
+                planets.push({
+                    x: x,
+                    y: y,
+                    radius: 2 + Math.random() * 4,
+                    mass: 1,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: Math.sin(angle) * speed,
+                    vy: -Math.cos(angle) * speed
+                });
+            }
+            
+            // Flag to track if simulation is active
+            pureGravityActive = true;
+            
+            // Animation loop
+            function animate() {
+                if (!pureGravityActive) {
+                    cancelAnimationFrame(gravityAnimationId);
+                    return;
+                }
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, gravityCanvas.width, gravityCanvas.height);
+                
+                // Draw sun
+                ctx.beginPath();
+                ctx.arc(sun.x, sun.y, sun.radius, 0, Math.PI * 2);
+                ctx.fillStyle = sun.color;
+                ctx.fill();
+                
+                // Update and draw planets
+                for (const planet of planets) {
+                    // Calculate gravitational force
+                    const dx = sun.x - planet.x;
+                    const dy = sun.y - planet.y;
+                    const distSq = dx * dx + dy * dy;
+                    const dist = Math.sqrt(distSq);
+                    
+                    // Skip if too close to prevent extreme forces
+                    if (dist > sun.radius + planet.radius) {
+                        const force = sun.mass / distSq * 0.1;
+                        
+                        // Apply acceleration
+                        planet.vx += (dx / dist) * force;
+                        planet.vy += (dy / dist) * force;
+                    }
+                    
+                    // Apply slight damping
+                    planet.vx *= 0.999;
+                    planet.vy *= 0.999;
+                    
+                    // Update position
+                    planet.x += planet.vx;
+                    planet.y += planet.vy;
+                    
+                    // Bounce off edges
+                    if (planet.x < 0 || planet.x > gravityCanvas.width) {
+                        planet.vx *= -0.9;
+                    }
+                    if (planet.y < 0 || planet.y > gravityCanvas.height) {
+                        planet.vy *= -0.9;
+                    }
+                    
+                    // Draw planet
+                    ctx.beginPath();
+                    ctx.arc(planet.x, planet.y, planet.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = planet.color;
+                    ctx.fill();
+                    
+                    // Draw line to sun
+                    const lineMaxDist = 250;
+                    if (dist < lineMaxDist) {
+                        ctx.beginPath();
+                        ctx.moveTo(planet.x, planet.y);
+                        ctx.lineTo(sun.x, sun.y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / lineMaxDist})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+                
+                // Request next frame
+                gravityAnimationId = requestAnimationFrame(animate);
+            }
+            
+            // Start animation
+            animate();
+            
+            console.log('Pure gravity simulation started');
+        }
+        
+        // Handle window resizing
+        window.addEventListener('resize', function() {
+            const gravityCanvas = document.getElementById('gravity-canvas');
+            if (gravityCanvas && pureGravityActive) {
+                gravityCanvas.width = window.innerWidth;
+                gravityCanvas.height = window.innerHeight;
+            }
+        });
+        
+        // Function to stop gravity simulation
+        function stopGravitySimulation() {
+            if (pureGravityActive) {
+                pureGravityActive = false;
+                cancelAnimationFrame(gravityAnimationId);
+                
+                const gravityCanvas = document.getElementById('gravity-canvas');
+                if (gravityCanvas) {
+                    gravityCanvas.style.display = 'none';
+                }
+                
+                const particlesContainer = document.getElementById('particles-js');
+                particlesContainer.style.display = 'block';
+                
+                console.log('Stopped gravity simulation');
+            }
+        }
+        
+        // Override destroyParticles to clean up gravity simulation
+        if (typeof destroyParticles === 'function') {
+            const originalDestroyParticles = destroyParticles;
+            destroyParticles = function() {
+                originalDestroyParticles();
+                stopGravitySimulation();
+            };
+        }
+        
+        // Override applyPureGravity to update controls
+        const originalApplyPureGravity = window.applyPureGravity || function() {};
+        window.applyPureGravity = function() {
+            // Update hover mode in UI to show correct state
+            document.getElementById('hoverMode').value = 'bounce';
+            
+            // Call the original function from gravity.js
+            if (typeof originalApplyPureGravity === 'function') {
+                originalApplyPureGravity();
+            }
+        };
+    </script>
+    <script src="gravity.js"></script>
+</body>
+</html> 

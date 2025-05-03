@@ -1,13 +1,15 @@
 [build]
   publish = "gravitational-particles.go-main"
+  # No build command needed for a static site
+
+# Redirects not needed when we rename to index.html
   
-[[redirects]]
-  from = "/*"
-  to = "/demo.html"
-  status = 200
-  force = false
-  conditions = {Path = "/"}
-  
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "public, max-age=3600"
+
 [dev]
   command = "npm run dev"
-  port = 3000 
+  port = 3000
+  publish = "gravitational-particles.go-main" 
