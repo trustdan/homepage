@@ -22,23 +22,23 @@
         .content {
             position: relative;
             z-index: 10;
-            padding: 2rem;
+            padding: 0;
             max-width: 1200px;
             margin: 0 auto;
+            pointer-events: none; /* Allow clicks to pass through to particles */
         }
         
         .hero {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
+            padding: 1rem;
+            margin: 1rem auto;
             max-width: 800px;
+            color: white;
+            pointer-events: none; /* Allow clicks to pass through to particles */
         }
         
         h1 {
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: white;
         }
         
         .examples {
@@ -210,28 +210,64 @@
         
         .profile-links {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin-top: 1.5rem;
         }
         
         .profile-links a {
             display: inline-flex;
             align-items: center;
-            margin: 0 10px;
+            margin: 8px 0;
             padding: 8px 16px;
-            background-color: #2c3e50;
-            color: white;
+            background-color: white;
+            color: #2c3e50;
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s;
+            width: 200px;
+            justify-content: center;
+            font-weight: 500;
+            pointer-events: auto; /* Re-enable pointer events for buttons */
         }
         
         .profile-links a:hover {
-            background-color: #34495e;
+            background-color: #f5f5f5;
         }
         
         .profile-links a i {
             margin-right: 8px;
+        }
+        
+        /* Buy Me a Coffee button styling to match other buttons */
+        .bmc-btn-container {
+            margin: 8px 0;
+            display: flex;
+            justify-content: center;
+            pointer-events: auto; /* Re-enable pointer events for buttons */
+        }
+        .bmc-btn {
+            min-width: 200px !important;
+            height: 40px !important;
+            border-radius: 4px !important;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            pointer-events: auto; /* Re-enable pointer events for image */
+        }
+        
+        /* Enable pointer events only for interactive elements */
+        .profile-links a, 
+        .profile-image, 
+        .bmc-btn-container {
+            pointer-events: auto; /* Re-enable pointer events for buttons */
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -242,13 +278,24 @@
     <div class="content">
         <div class="hero">
             <div class="homepage-content">
+                <img src="../headshot.jpg" alt="Daniel's Headshot" class="profile-image">
                 <h1>Daniel's Homepage</h1>
                 <p>Welcome to my personal site. I'm a developer passionate about creating awesome things.</p>
                 
                 <div class="profile-links">
-                    <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i> Contact Me</a>
+                    <a href="https://github.com/trustdan" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/rustd" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://caprawise.com/about" target="_blank"><i class="fas fa-briefcase"></i> CapraWise</Caption></a>
+                    <a href="https://admitchu.com/" target="_blank"><i class="fas fa-chart-simple"></i> Admitchu.com</a>
+                    <a href="https://chairforces.com" target="_blank"><i class="fas fa-chair"></i> Chair Forces LLC</a>
+                    <a href="https://github.com/trustdan/options-risk-management"><i class="fas fa-arrow-trend-up"></i> Options Trading Dashboard</a>
+                    <a href="https://definno.com" target="_blank"><i class="fas fa-lightbulb"></i> Defense Innovation Organizations</a>
+                    <a href="https://defacq.com" target="_blank"><i class="fas fa-book"></i> Defense Acquisitions Glossary</a>
+                    <a href="https://github.com/trustdan/awesome-sbir-sttr" target="_blank"><i class="fas fa-code-branch"></i> Awesome SBIR/STTR</a>
+                    
+                    <div class="bmc-btn-container">
+                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="admitchu" data-color="#40DCA5" data-emoji="☕" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
+                    </div>
                 </div>
             </div>
         </div>
