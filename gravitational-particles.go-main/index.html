@@ -400,10 +400,10 @@
                 
                 <!-- Attraction Strength -->
                 <div class="control-item">
-                    <label class="control-label">Attraction strength (inverted)</label>
+                    <label class="control-label">Attraction strength</label>
                     <div class="control-row">
                         <input type="range" class="control-slider" id="attractionStrength" min="1" max="5000" step="10" value="140">
-                        <input type="number" class="control-value" id="attractionStrengthValue" value="4900" step="10">
+                        <input type="number" class="control-value" id="attractionStrengthValue" value="140" step="10">
                     </div>
                 </div>
             </div>
@@ -1199,6 +1199,17 @@
                             
                             // Make sure bounce is disabled 
                             pJS.particles.move.bounce = false;
+
+                            // Re-apply attraction settings from the config after manual particle creation
+                            if (config.particles.move.attract) {
+                                pJS.particles.move.attract.enable = config.particles.move.attract.enable;
+                                pJS.particles.move.attract.rotateX = config.particles.move.attract.rotateX;
+                                pJS.particles.move.attract.rotateY = config.particles.move.attract.rotateY;
+                                console.log(`Re-applied attraction settings: enable=${pJS.particles.move.attract.enable}, rotateX=${pJS.particles.move.attract.rotateX}`);
+                            } else {
+                                pJS.particles.move.attract.enable = false;
+                                console.log('Disabled attraction as it was not in config.');
+                            }
                             
                             // Force a redraw if necessary (though usually happens automatically)
                             pJS.fn.particlesDraw(); 
