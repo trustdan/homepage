@@ -313,7 +313,7 @@
     <!-- Control Panel -->
     <div class="control-panel" id="controlPanel">
         <div class="control-header">
-            <div class="control-title">Particles.js Controls</div>
+            <div class="control-title">Change Particles Behavior</div>
             <button class="control-toggle" id="controlToggle">+</button>
         </div>
         <div class="control-content collapsed" id="controlContent">
@@ -326,7 +326,7 @@
                     <label class="control-label">Number of particles</label>
                     <div class="control-row">
                         <input type="range" class="control-slider" id="particleNumber" min="1" max="500" value="69">
-                        <input type="number" class="control-value" id="particleNumberValue" value="69">
+                        <input type="number" class="control-value" id="particleNumberValue" value="70">
                     </div>
                 </div>
                 
@@ -374,8 +374,8 @@
                 <div class="control-item">
                     <label class="control-label">Speed</label>
                     <div class="control-row">
-                        <input type="range" class="control-slider" id="particleSpeed" min="0" max="20" value="2">
-                        <input type="number" class="control-value" id="particleSpeedValue" value="2">
+                        <input type="range" class="control-slider" id="particleSpeed" min="0" max="5" step="0.1" value="0.5">
+                        <input type="number" class="control-value" id="particleSpeedValue" value="0.1" step="0.1">
                     </div>
                 </div>
                 
@@ -400,10 +400,10 @@
                 
                 <!-- Attraction Strength -->
                 <div class="control-item">
-                    <label class="control-label">Attraction strength</label>
+                    <label class="control-label">Attraction strength (inverted)</label>
                     <div class="control-row">
-                        <input type="range" class="control-slider" id="attractionStrength" min="1" max="15000" value="140">
-                        <input type="number" class="control-value" id="attractionStrengthValue" value="140">
+                        <input type="range" class="control-slider" id="attractionStrength" min="1" max="5000" step="10" value="140">
+                        <input type="number" class="control-value" id="attractionStrengthValue" value="4900" step="10">
                     </div>
                 </div>
             </div>
@@ -439,7 +439,7 @@
                     <label class="control-label">Connection distance</label>
                     <div class="control-row">
                         <input type="range" class="control-slider" id="lineDistance" min="10" max="500" value="159">
-                        <input type="number" class="control-value" id="lineDistanceValue" value="159">
+                        <input type="number" class="control-value" id="lineDistanceValue" value="100">
                     </div>
                 </div>
             </div>
@@ -1478,7 +1478,7 @@
                         },
                         move: {
                             enable: true,
-                            speed: parseInt(document.getElementById('particleSpeed').value),
+                            speed: parseFloat(document.getElementById('particleSpeed').value),
                             direction: document.getElementById('particleDirection').value,
                             random: false,
                             straight: false,
@@ -1587,8 +1587,8 @@
                 document.getElementById('particleOpacity').value = 0.5;
                 document.getElementById('particleOpacityValue').value = 0.5;
                 document.getElementById('particleShape').value = 'circle';
-                document.getElementById('particleSpeed').value = 2;
-                document.getElementById('particleSpeedValue').value = 2;
+                document.getElementById('particleSpeed').value = 0.5;
+                document.getElementById('particleSpeedValue').value = 0.5;
                 document.getElementById('particleDirection').value = 'none';
                 document.getElementById('enableLines').checked = true;
                 document.getElementById('lineColor').value = '#90EE90'; // Light green
