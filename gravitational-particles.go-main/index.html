@@ -269,6 +269,13 @@
         .bmc-btn-container {
             pointer-events: auto; /* Re-enable pointer events for buttons */
         }
+
+        /* Media query for mobile devices */
+        @media (max-width: 600px) {
+            .hero {
+                margin-top: 5rem; /* Add more space at the top on small screens */
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -280,7 +287,8 @@
             <div class="homepage-content">
                 <img src="../headshot.jpg" alt="Daniel's Headshot" class="profile-image">
                 <h1>Dan's Projects</h1>
-                <p>Welcome to my page. I'm passionate about creating awesome things.</p>
+                <p>Welcome to my page.</p>
+                <p>I'm passionate about creating awesome things.</p>
                 <p>Follow me on Github and LinkedIn.</p>
                 
                 <div class="profile-links">
